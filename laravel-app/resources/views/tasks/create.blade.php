@@ -1,15 +1,75 @@
-<h1>Create Task</h1>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Create Task</title>
+
+<style>
+body{
+    background:#ffe6f0;
+    font-family: Georgia, serif;
+    text-align:center;
+    padding:40px;
+}
+
+.container{
+    background:white;
+    width:400px;
+    margin:auto;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 5px 10px rgba(0,0,0,0.1);
+}
+
+h1{
+    color:#ff4da6;
+}
+
+input, textarea{
+    width:90%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:10px;
+    border:1px solid #ffb3d9;
+}
+
+button{
+    background:#ff66a3;
+    color:white;
+    padding:10px 20px;
+    border:none;
+    border-radius:15px;
+    cursor:pointer;
+}
+
+a{
+    display:block;
+    margin-top:15px;
+    color:#d63384;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>💗 Create Task 💗</h1>
 
 <form action="{{ route('tasks.store') }}" method="POST">
-    @csrf
+@csrf
 
-    <label>Title</label><br>
-    <input type="text" name="title"><br><br>
+<input type="text" name="title" placeholder="Task title">
 
-    <label>Description</label><br>
-    <textarea name="description"></textarea><br><br>
+<textarea name="description" placeholder="Task description"></textarea>
 
-    <button type="submit">Save Task</button>
+<br>
+<button type="submit">Save Task</button>
+
 </form>
 
 <a href="{{ route('tasks.index') }}">Back</a>
+
+</div>
+
+</body>
+</html>
