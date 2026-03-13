@@ -63,6 +63,17 @@ a{
 
 <textarea name="description">{{ $task->description }}</textarea>
 
+<label>Status</label>
+<br>
+<select name="is_completed">
+    <option value="0" {{ old('is_completed', $task->is_completed) == 0 ? 'selected' : '' }}>
+        Pending
+    </option>
+    <option value="1" {{ old('is_completed', $task->is_completed) == 1 ? 'selected' : '' }}>
+        Completed
+    </option>
+</select>
+
 <br>
 <button type="submit">Update Task</button>
 

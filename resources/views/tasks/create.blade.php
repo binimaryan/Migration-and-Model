@@ -62,6 +62,17 @@ a{
 
 <textarea name="description" placeholder="Task description"></textarea>
 
+<label>Status</label>
+<br>
+<select name="is_completed">
+    <option value="0" {{ old('is_completed', 0) == 0 ? 'selected' : '' }}>
+        Pending
+    </option>
+    <option value="1" {{ old('is_completed', 0) == 1 ? 'selected' : '' }}>
+        Completed
+    </option>
+</select>
+
 <br>
 <button type="submit">Save Task</button>
 
