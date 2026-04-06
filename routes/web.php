@@ -6,7 +6,7 @@ use App\Http\Controllers\GreetController;
 
 Route::resource('tasks', TaskController::class);
 
-Route::get('/greet/{name?}', [GreetController::class, 'greet']);
+Route::get('/greet/{name}', [GreetController::class, 'greet']);
 
 Route::get('/', function () {
     return view('welcome');
