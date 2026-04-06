@@ -1,89 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>View Task</title>
-
-    <style>
-
-        body{
-            background:#ffe6f0;
-            font-family: Georgia, serif;
-            text-align:center;
-            padding:40px;
-        }
-
-        h1{
-            color:#d63384;
-            font-size:36px;
-        }
-
-        table{
-            width:500px;
-            margin:30px auto;
-            border-collapse:collapse;
-            background:white;
-            border-radius:15px;
-            overflow:hidden;
-            box-shadow:0 5px 10px rgba(0,0,0,0.1);
-        }
-
-        th{
-            background:#ffb3d9;
-            padding:12px;
-        }
-
-        td{
-            padding:12px;
-            border-top:1px solid #ffd6e7;
-        }
-
-        .back-btn{
-            background:#ff99cc;
-            color:white;
-            padding:10px 20px;
-            border-radius:15px;
-            text-decoration:none;
-        }
-
-    </style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Details</title>
+    @vite('resources/css/app.css')
 </head>
+<body class="bg-pink-50 font-sans min-h-screen">
 
-<body>
+<div class="max-w-xl mx-auto mt-10 px-4">
 
-<h1>💗 Task Details 💗</h1>
+    <h1 class="text-pink-600 text-3xl font-bold text-center mb-6">
+        📋 Task Details
+    </h1>
 
-<table>
+    <div class="bg-white shadow-xl rounded-2xl p-6">
 
-<tr>
-<th>ID</th>
-<td>{{ $task->id }}</td>
-</tr>
+        <p class="mb-3"><strong>ID:</strong> {{ $task->id }}</p>
+        <p class="mb-3"><strong>Title:</strong> {{ $task->title }}</p>
+        <p class="mb-3"><strong>Description:</strong> {{ $task->description }}</p>
 
-<tr>
-<th>Title</th>
-<td>{{ $task->title }}</td>
-</tr>
+        <p class="mb-3">
+            <strong>Status:</strong>
+            @if($task->is_completed)
+                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs">✔ Completed</span>
+            @else
+                <span class="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-xs">Pending</span>
+            @endif
+        </p>
 
-<tr>
-<th>Description</th>
-<td>{{ $task->description }}</td>
-</tr>
+        <div class="flex justify-end mt-4">
+            <a href="{{ route('tasks.index') }}" 
+               class="bg-pink-500 text-white px-5 py-2 rounded-full">
+               Back
+            </a>
+        </div>
 
-<tr>
-<th>Status</th>
-<td>
-@if($task->is_completed)
-Completed
-@else
-Pending
-@endif
-</td>
-</tr>
+    </div>
 
-</table>
-
-<a href="{{ route('tasks.index') }}" class="back-btn">Back</a>
+</div>
 
 </body>
 </html>

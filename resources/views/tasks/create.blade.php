@@ -1,73 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Create Task</title>
-
-<style>
-body{
-    background:#ffe6f0;
-    font-family: Georgia, serif;
-    text-align:center;
-    padding:40px;
-}
-
-.container{
-    background:white;
-    width:400px;
-    margin:auto;
-    padding:30px;
-    border-radius:20px;
-    box-shadow:0 5px 10px rgba(0,0,0,0.1);
-}
-
-h1{
-    color:#ff4da6;
-}
-
-input, textarea{
-    width:90%;
-    padding:10px;
-    margin:10px 0;
-    border-radius:10px;
-    border:1px solid #ffb3d9;
-}
-
-button{
-    background:#ff66a3;
-    color:white;
-    padding:10px 20px;
-    border:none;
-    border-radius:15px;
-    cursor:pointer;
-}
-
-a{
-    display:block;
-    margin-top:15px;
-    color:#d63384;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Task</title>
+    @vite('resources/css/app.css')
 </head>
+<body class="bg-pink-50 font-sans min-h-screen">
 
-<body>
+<div class="max-w-xl mx-auto mt-10 px-4">
 
-<div class="container">
+    <h1 class="text-pink-600 text-3xl font-bold text-center mb-6">
+        📝 Create Task
+    </h1>
 
-<h1>💗 Create Task 💗</h1>
+    <form action="{{ route('tasks.store') }}" method="POST" class="bg-white shadow-xl rounded-2xl p-6">
+        @csrf
 
-<form action="{{ route('tasks.store') }}" method="POST">
-@csrf
+        <div class="mb-4">
+            <label class="block mb-2 font-semibold text-gray-700">Title</label>
+            <input type="text" name="title" 
+                class="w-full p-3 border rounded-md focus:ring-2 focus:ring-pink-300">
+        </div>
 
-<input type="text" name="title" placeholder="Task title">
+        <div class="mb-4">
+            <label class="block mb-2 font-semibold text-gray-700">Description</label>
+            <textarea name="description"
+                class="w-full p-3 border rounded-md focus:ring-2 focus:ring-pink-300"></textarea>
+        </div>
 
-<textarea name="description" placeholder="Task description"></textarea>
+        <div class="flex justify-between">
+            <a href="{{ route('tasks.index') }}" 
+               class="bg-gray-300 px-4 py-2 rounded-full">Back</a>
 
-<br>
-<button type="submit">Save Task</button>
-
-</form>
-
-<a href="{{ route('tasks.index') }}">Back</a>
+            <button class="bg-pink-500 hover:bg-pink-600 text-white px-5 py-2 rounded-full">
+                Save
+            </button>
+        </div>
+    </form>
 
 </div>
 
