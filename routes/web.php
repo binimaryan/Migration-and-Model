@@ -11,3 +11,7 @@ Route::get('/greet/{name}', [GreetController::class, 'greet']);
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/greet', function () {
+    return view('greet');
+});
